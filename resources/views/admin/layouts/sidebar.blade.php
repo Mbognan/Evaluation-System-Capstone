@@ -198,7 +198,7 @@
                     <span class="nav-label">Evaluation</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
-                        <a href="{{ route('admin.category.index') }}">Criteria</a>
+                        <a href="{{ route('admin.category.index') }}">Category</a>
                     </li>
                     <li>
                         <a href="">Questionare</a>

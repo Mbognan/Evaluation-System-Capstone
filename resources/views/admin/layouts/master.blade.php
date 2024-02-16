@@ -16,8 +16,11 @@
     <link href="{{ asset('admin/assets/css/main.min.css') }}" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    @vite(['resources/css/app.css','resources/js/app.js', ])
+    <link href="{{ asset('admin/assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" >
+
+    @vite(['resources/js/app.js','resources/css/app.css'])
 
 </head>
 
@@ -67,8 +70,9 @@
     <!-- CORE SCRIPTS-->
     <script src="{{ asset('admin/assets/js/app.min.js') }}" type="text/javascript"></script>
     <!-- PAGE LEVEL SCRIPTS-->
-    <script src="{{ asset('admin/assets/js/scripts/dashboard_1_demo.js') }}" type="text/javascript"></script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script>
         @if ($errors->any())
          @foreach ($errors->all() as $error )
@@ -77,6 +81,7 @@
 
         @endif
     </script>
+
     @stack('scripts')
 
 </body>
