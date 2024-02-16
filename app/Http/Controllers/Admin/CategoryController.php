@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -29,12 +31,20 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'title' => ['required', 'max:255'],
             'status' => ['required'],
         ]);
+        $category = new Category();
+
+        $category->name = $request->title;
+        $category->status = $request->status;
+        $category->save();
+
+        toastr()->success('Created Successfully');
+        return to_route('admin.category.index');
     }
 
     /**

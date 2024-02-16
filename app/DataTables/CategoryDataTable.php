@@ -75,14 +75,14 @@ class CategoryDataTable extends DataTable
     {
         return [
 
-            Column::make('id'),
-            Column::make('name'),
-            Column::make('status'),
+            Column::make('id')->width(100),
+            Column::make('name')->width(200),
+            Column::make('status')->width(200),
 
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
-            ->width(80)
+            ->width(100)
             ->addClass('text-center'),
         ];
     }

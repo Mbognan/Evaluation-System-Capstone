@@ -18,7 +18,8 @@
                 </div>
             </div>
             <div class="ibox-body">
-                <form class="form-horizontal">
+                <form  action="{{ route('admin.category.store') }}" method="POST" class="form-horizontal">
+                    @csrf
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
@@ -41,7 +42,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10 ml-sm-auto">
-                            <div class="btn btn-primary" >Submit</div>
+                           <button type="submit" class="btn btn-primary btn-rounded">Submit</button>
                         </div>
                     </div>
                 </form>
