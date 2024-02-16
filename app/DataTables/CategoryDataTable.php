@@ -76,7 +76,7 @@ class CategoryDataTable extends DataTable
         return [
 
             Column::make('id')->width(100),
-            Column::make('name')->width(200),
+            Column::make('title')->width(200),
             Column::make('status')->width(200),
 
             Column::computed('action')

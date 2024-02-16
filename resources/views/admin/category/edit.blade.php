@@ -19,21 +19,22 @@
                 </div>
             </div>
             <div class="ibox-body">
-                <form  action="{{ route('admin.category.store') }}" method="POST" class="form-horizontal">
+                <form  action="{{ route('admin.category.update',$category->id) }}" method="POST" class="form-horizontal">
                     @csrf
+                    @method('PUT')
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
+                        <label class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" placeholder="Category Title" name="title">
+                            <input class="form-control" type="text" placeholder="Category Title" name="title" value="{{ $category->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
+                        <label class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
                                 <select name="status" class="form-control">
                                     <option  value="">Select</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
+                                    <option @selected($category->status === 1)  value="1">Active</option>
+                                    <option @selected($category->status === 0)  value="0">Inactive</option>
 
                                 </select>
 
@@ -43,7 +44,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-10 ml-sm-auto">
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </form>

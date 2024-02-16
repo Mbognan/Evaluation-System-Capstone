@@ -39,11 +39,11 @@ class CategoryController extends Controller
         ]);
         $category = new Category();
 
-        $category->name = $request->title;
+        $category->title = $request->title;
         $category->status = $request->status;
         $category->save();
 
-        toastr()->success('Created Successfully');
+        toastr()->success('Created Successfully!');
         return to_route('admin.category.index');
     }
 
@@ -52,23 +52,30 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id):View
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id):RedirectResponse
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->title = $request->title;
+        $category->status = $request->status;
+        $category->save();
+        toastr()->success('Updated Successfully!');
+        return to_route('admin.category.index');
     }
 
     /**
@@ -76,6 +83,11 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            Category::findOrFail($id)->delete();
+        } catch (\Exception $e) {
+            logger($e);
+            return response(['status' => 'error', 'message' => $e->getMessage()]);
+        }
     }
 }

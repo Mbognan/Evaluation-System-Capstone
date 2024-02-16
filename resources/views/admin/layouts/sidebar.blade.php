@@ -194,7 +194,7 @@
 
             {{-- form --}}
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                <a href=""><i class="sidebar-item-icon fa fa-edit"></i>
                     <span class="nav-label">Evaluation</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
                     <li>
@@ -205,7 +205,6 @@
                     </li>
                 </ul>
             </li>
-
 
 
         </ul>
